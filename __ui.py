@@ -16,7 +16,7 @@ class ModuleUIFrame(ttk.Frame):
             parent: A tk or ttk object
         """
 
-        super(ModuleUIFrame, self).__init__(parent)
+        super(ModuleUIFrame, self).__init__(parent, padding=8)
         self.columnconfigure(0, weight=1)
         self.rowconfigure(0, weight=1)
 
@@ -42,19 +42,19 @@ class ModuleUIFrame(ttk.Frame):
             column=0, row=6, padx=0, pady=4, sticky="W E N S")
 
         # Set default values
-        from ....datatools import get_data
-        data = get_data()
+        from modis.tools import data
 
-        if "reddit_api_user_agent" in data["discord"]["keys"]:
-            self.reddit_api_user_agent.set(data["discord"]["keys"]["reddit_api_user_agent"])
-        if "reddit_api_client_id" in data["discord"]["keys"]:
-            self.reddit_api_client_id.set(data["discord"]["keys"]["reddit_api_client_id"])
-        if "reddit_api_client_secret" in data["discord"]["keys"]:
-            self.reddit_api_client_secret.set(data["discord"]["keys"]["reddit_api_client_secret"])
+        if "reddit_api_user_agent" in data.cache["keys"]:
+            self.reddit_api_user_agent.set(data.cache["keys"]["reddit_api_user_agent"])
+        if "reddit_api_client_id" in data.cache["keys"]:
+            self.reddit_api_client_id.set(data.cache["keys"]["reddit_api_client_id"])
+        if "reddit_api_client_secret" in data.cache["keys"]:
+            self.reddit_api_client_secret.set(data.cache["keys"]["reddit_api_client_secret"])
 
+    # TODO fix this thing
     def update_keys(self):
         """Updates the Google API key with the text value"""
-        from ...main import add_api_key
-        add_api_key("reddit_api_user_agent", self.reddit_api_user_agent.get())
-        add_api_key("reddit_api_client_id", self.reddit_api_client_id.get())
-        add_api_key("reddit_api_client_secret", self.reddit_api_client_secret.get())
+        # from ...main import add_api_key
+        # add_api_key("reddit_api_user_agent", self.reddit_api_user_agent.get())
+        # add_api_key("reddit_api_client_id", self.reddit_api_client_id.get())
+        # add_api_key("reddit_api_client_secret", self.reddit_api_client_secret.get())

@@ -1,5 +1,4 @@
-from .._tools import ui_embed
-from ._data import *
+from modis.tools import embed
 
 
 def success(channel, post):
@@ -17,11 +16,11 @@ def success(channel, post):
     datapacks = [("Game", post[0], True), ("Upvotes", post[2], True)]
 
     # Create embed UI object
-    gui = ui_embed.UI(
+    gui = embed.UI(
         channel,
         "Link",
         post[1],
-        modulename=modulename,
+        modulename="gamedeals",
         colour=0xFF8800,
         thumbnail=post[1],
         datapacks=datapacks
@@ -37,14 +36,14 @@ def no_results(channel):
         channel (discord.Channel): The Discord channel to bind the embed to
 
     Returns:
-        ui (ui_embed.UI): The embed UI object
+        ui (embed.UI): The embed UI object
     """
 
-    gui = ui_embed.UI(
+    gui = embed.UI(
         channel,
         "No results",
         ":c",
-        modulename=modulename,
+        modulename="gamedeals",
         colour=0xFF8800
     )
 
