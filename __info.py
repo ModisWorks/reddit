@@ -5,7 +5,7 @@ CONTRIBUTORS = {
 BLURB = "Posts current hot posts above an upvote threshold of a particular subreddit. It's set to /r/gamedeals by default so you can make sure you don't miss any sales!"
 
 COMMANDS = {
-    "gamedeals": {
+    "reddit": {
         "level": 0
     }
 }
@@ -14,8 +14,9 @@ DATA_GLOBAL = {}
 
 HELP_DATAPACKS = {
     "Commands": [{
-        "name": "gamedeals",
-        "description": "Gets the top game deals from Reddit"
+        "name": "reddit",
+        "params": ["subreddit"],
+        "description": "Gets posts with more than 200 upvotes from a subreddit"
     }]
 }
 HELP_MARKDOWN = """"""

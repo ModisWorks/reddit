@@ -13,14 +13,14 @@ def success(channel, post):
     """
 
     # Create datapacks
-    datapacks = [("Game", post[0], True), ("Upvotes", post[2], True)]
+    datapacks = [("Title", post[0], True), ("Upvotes", post[2], True)]
 
     # Create embed UI object
     gui = embed.UI(
         channel,
         "Link",
         post[1],
-        modulename="gamedeals",
+        modulename="reddit",
         colour=0xFF8800,
         thumbnail=post[1],
         datapacks=datapacks
@@ -43,7 +43,7 @@ def no_results(channel):
         channel,
         "No results",
         ":c",
-        modulename="gamedeals",
+        modulename="reddit",
         colour=0xFF8800
     )
 

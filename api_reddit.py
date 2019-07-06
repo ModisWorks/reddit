@@ -31,10 +31,10 @@ def build_api():
         return False
 
 
-def get_top10(threshold=200):
-    logger.debug("get_top10 with threshold {}".format(threshold))
+def get_top10(subreddit, threshold=200):
+    logger.debug("get_top10 of {} with threshold {}".format(subreddit, threshold))
     posts = []
-    for post in redditapi.subreddit("gamedeals").hot(limit=10):
+    for post in redditapi.subreddit(subreddit).hot(limit=10):
         if post.score > threshold:
             posts.append((post.title, post.url, post.score))
 
